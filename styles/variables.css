@@ -3,8 +3,8 @@
   --inter: 'Inter-Variable';
   --PressStart: 'PressStart2P-Regular';
   --normal-font-size: 18px;
-  --font-variable-normal: "wght" 400;
-  --font-variable-bold: "wght" 700;
+  --font-variable-normal: 400;
+  --font-variable-bold: 700;
   --section-inline-size: clamp(23.438rem, 16.285rem + 30.516vi, 43.75rem);
   --header-block-size: clamp(20.438rem, 19.535rem + 3.85vi, 23rem);
   --header-size-title: clamp(3.063rem, 2.71rem + 1.502vi, 4.063rem);

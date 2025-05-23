@@ -15,7 +15,7 @@
   min-block-size: 100dvb;
   font-family: var(--inter), sans-serif;
   font-size: var(--normal-font-size);
-  font-variation-settings: var(--font-variable-normal);
+  font-variation-settings: "wght" var(--font-variable-normal);
   color: #000;
   line-height: 117%;
   background-image: repeating-linear-gradient(to right, #d3d3d3 0px 2px, transparent 2px 4px ),
@@ -109,7 +109,7 @@
 
 .card__title {
   font-size: var(--normal-font-size);
-  font-variation-settings: var(--font-variable-bold);
+  font-variation-settings: "wght" var(--font-variable-bold);
   line-height: 100%;
 }
 
