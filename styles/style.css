@@ -13,4 +13,378 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--inter), sans-serif;
+  font-size: var(--normal-font-size);
+  font-variation-settings: var(--font-variable-normal);
+  color: #000;
+  line-height: 117%;
+  background-image: repeating-linear-gradient(to right, #d3d3d3 0px 2px, transparent 2px 4px ),
+    repeating-linear-gradient(to bottom, #d3d3d3 0px 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.section__margin-center {
+  /* класс для выравнивания секций по центру*/
+  margin-inline: auto;
+}
+
+.header {
+  margin-block-start: 102px;
+  margin-block-end: 100px;
+  font-family: var(--PressStart), sans-serif;
+  block-size: var(--header-block-size);
+  text-transform: uppercase;
+  border: var(--border);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.section__adaptive-size {
+  inline-size: 100vw;
+}
+
+.header__title {
+  font-size: var(--header-size-title);
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.header__subtitle {
+  font-size: var(--header-size-subtitle);
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.card {
+  border: var(--border);
+  margin-block-end: 50px;
+  background-color: #fff;
+}
+
+.first-sprint__image-one {
+  filter: saturate(0.5) brightness(1.3);
+}
+
+.first-sprint__image-two {
+  filter: saturate(3);
+}
+
+.second-sprint__image-one {
+  filter: hue-rotate(30deg);
+}
+
+.second-sprint__image-two {
+  filter: invert(1) brightness(0.7);
+}
+
+.third-sprint__image-one {
+  filter: sepia(1);
+}
+
+.third-sprint__image-two {
+  filter: blur(0.7rem);
+}
+
+.fourth-sprint__image-one {
+  filter: sepia(0.3) hue-rotate(130deg) opacity(0.9) saturate(4) invert(0.4);
+}
+
+.card:last-of-type {
+  margin-block-end: 0;
+}
+
+.section__title {
+  padding-inline-start: 10px;
+  padding-inline-end: clamp(0.625rem, 0.317rem + 1.315vi, 1.5rem);
+  padding-block-start: 6px;
+  padding-block-end: 6px;
+  border-bottom: var(--border);
+}
+
+.card__title {
+  font-size: var(--normal-font-size);
+  font-variation-settings: var(--font-variable-bold);
+  line-height: 100%;
+}
+
+.section__picture {
+  position: relative;
+}
+
+.card__image {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.section__picture-label {
+  position: absolute;
+  top: clamp(1.438rem, 1.393rem + 0.188vi, 1.563rem);
+  right: clamp(0.688rem, 0.379rem + 1.315vi, 1.563rem);
+  font-family: var(--PressStart), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  opacity: 50%;
+  text-shadow: 1px 1px var(--text-stroke), -1px -1px var(--text-stroke);
+  mix-blend-mode: hard-light;
+}
+
+@supports (
+  (text-stroke: 0.5px var(--text-stroke)) or
+    (-webkit-text-stroke: 0.5px var(--text-stroke))
+) {
+  .section__picture-label {
+    -webkit-text-stroke: 0.5px var(--text-stroke);
+    text-stroke: 0.5px var(--text-stroke);
+    text-shadow: none;        /*c 0.5 хоть как-то адекватно выглядит, с 1 - очень плохо*/
+  }
+}
+
+.content {
+  padding-inline: 25px;
+  padding-block-start: 25px;
+  margin-block-end: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  border-block-start: var(--border);
+}
+
+.button__section {
+  padding-inline: 25px;
+  padding-block-end: 25px;
+  display: flex;
+  gap: 8px; /* гап для соответствия макету в состоянии focus-visible*/
+  justify-content: end;
+  align-items: center;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  inline-size: 35px; /* размеры для соответствия макету в состоянии focus-visible*/
+  block-size: 34px;
+  display: flex;
+  justify-content: center; /* для соответствия макету из-за перечисленных выше изменений*/
+  align-items: center;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid #000;
+  transition: outline 0.3s ease;
+}
+
+.core {
+  fill: transparent;
+}
+
+.card__icon-button:hover .core {
+  fill: var(--contour-color);
+  transition: fill 0.3s ease;
+}
+
+.card__icon-button:not(:hover) .core {
+  fill: transparent;
+  transition: fill 0.3s ease;
+  transition-delay: 0.03s;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s ease;
+  transition-delay: 0.05s;
+}
+
+.card__icon-button:not(:hover) .main-body {
+  fill: transparent;
+  transition: fill 0.3s ease;
+  transition-delay: 0s;
+}
+
+.card__icon-button:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s ease;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s ease;
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s ease;
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+}
+
+.like-icon.is-liked .heart {
+  animation-name: heart-scale;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  animation-delay: 0.1s;
+  animation-iteration-count: 1;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .sparks {
+  animation-name: heart-sparks;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  animation-delay: 0.3s;
+  animation-iteration-count: 1;
+}
+
+.card__like-button {
+  position: relative;
+  inline-size: 130px;
+  block-size: 38px;
+  font-family: var(--PressStart), sans-serif;
+  font-size: 14px;
+  line-height: 90%;
+  background-color: #fff;
+  border: var(--border);
+}
+
+.button__text {
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.card__like-button:focus {
+  outline: none;
+  box-shadow: 2px 2px #000;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  transform: scaleX(0);
+}
+
+.card__like-button:hover::before {
+  transform: scaleX(1);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left;
+}
+
+.save__button {
+  display: block;
+  background-color: #fff;
+  margin-block-start: 50px;
+  margin-block-end: 100px;
+  border: var(--border);
+  padding-block: 15px;
+  padding-inline: 20px;
+  inline-size: clamp(19.375rem, 18.737rem + 2.723vi, 21.188rem);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.save__button-title {
+  font-family: var(--PressStart), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 90%;
+}
+
+.floppy__image {
+  block-size: 28px;
+  inline-size: 28px;
+}
+
+.insert-floppy {
+  border: var(--border);
+  padding-block: 30px;
+  padding-inline: 40px; /*40 вместо 42, чтобы не было горизонтального скролла и текст соответствовал макету*/
+  min-inline-size: 341px;
+  inline-size: clamp(21.313rem, 20.96rem + 1.502vi, 22.313rem);
+}
+
+.insert-floppy[open] {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content min-content;
+  grid-column-gap: 20px;
+  grid-row-gap: 30px;
+}
+
+.close__button {
+  font-family: var(--PressStart);
+  font-size: 14px;
+  line-height: 90%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: #fff;
+  padding-block: 12.5px;
+  padding-inline: 114.5px;
+  inline-size: clamp(16.063rem, 15.27rem + 3.38vi, 18.313rem);
+  max-block-size: 38px;
+}
+
+.insert-floppy::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.floppy__image-save {
+  width: 39px;
+  height: 39px;
+}
+
+.save__button-title-close {
+  font-family: var(--PressStart);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+@media (width > 375px) {
+  .section__adaptive-size {
+    inline-size: var(--section-inline-size);
+  }
+  .insert-floppy {
+    padding-inline: 30px;
+  }
+}
+
+@media (width >= 1024px) {
+  .save__button {
+    flex-direction: row; /* такой медиазапрос для того, чтобы кнопка красиво себя вела на промежуточном расстоянии*/
+  }
+
+  .floppy__image {
+    block-size: 21px;
+    inline-size: 21px;
+  }
 }
