@@ -293,6 +293,10 @@
 }
 
 .save__button {
+  font-family: var(--PressStart), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 90%;
   background-color: #fff;
   margin-block-start: 50px;
   margin-block-end: 100px;
@@ -304,13 +308,6 @@
   flex-direction: column;
   gap: 8px;
   align-items: center;
-}
-
-.save__button-title {
-  font-family: var(--PressStart), sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 90%;
 }
 
 .floppy__image {
