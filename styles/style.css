@@ -18,9 +18,7 @@
   font-variation-settings: "wght" var(--font-variable-normal);
   color: #000;
   line-height: 117%;
-  background-image: repeating-linear-gradient(to right, #d3d3d3 0px 2px, transparent 2px 4px ),
-    repeating-linear-gradient(to bottom, #d3d3d3 0px 2px, transparent 2px 4px),
-    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+  background-image: repeating-linear-gradient(to right, #d3d3d3 0px 2px, transparent 2px 4px), repeating-linear-gradient(to bottom, #d3d3d3 0px 2px, transparent 2px 4px), linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
   background-size: cover;
   background-attachment: fixed;
 }
@@ -137,14 +135,11 @@
   mix-blend-mode: hard-light;
 }
 
-@supports (
-  (text-stroke: 0.5px var(--text-stroke)) or
-    (-webkit-text-stroke: 0.5px var(--text-stroke))
-) {
+@supports ((text-stroke: 0.5px var(--text-stroke)) or (-webkit-text-stroke: 0.5px var(--text-stroke))) {
   .section__picture-label {
     -webkit-text-stroke: 0.5px var(--text-stroke);
     text-stroke: 0.5px var(--text-stroke);
-    text-shadow: none;        /*c 0.5 хоть как-то адекватно выглядит, с 1 - очень плохо*/
+    text-shadow: none; /*c 0.5 хоть как-то адекватно выглядит, с 1 - очень плохо*/
   }
 }
 
@@ -374,11 +369,10 @@
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 1440px) {
   .save__button {
-    flex-direction: row; /* такой медиазапрос для того, чтобы кнопка красиво себя вела на промежуточном расстоянии*/
+    flex-direction: row;
   }
-
   .floppy__image {
     block-size: 21px;
     inline-size: 21px;
