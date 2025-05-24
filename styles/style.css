@@ -13,7 +13,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--inter), sans-serif;
+  font-family: var(--main-font), sans-serif;
   font-size: var(--normal-font-size);
   font-variation-settings: "wght" var(--font-variable-normal);
   color: #000;
@@ -31,7 +31,7 @@
 .header {
   margin-block-start: 102px;
   margin-block-end: 100px;
-  font-family: var(--PressStart), sans-serif;
+  font-family: var(--accent-font), sans-serif;
   block-size: var(--header-block-size);
   text-transform: uppercase;
   border: var(--border);
@@ -108,11 +108,13 @@
 .card__title {
   font-size: var(--normal-font-size);
   font-variation-settings: "wght" var(--font-variable-bold);
-  line-height: 100%;
+  line-height: 115%; /* 115 вместо 100 для соответствия макету */
 }
 
 .section__picture {
   position: relative;
+  margin-block: 0;
+  margin-inline: 0;
 }
 
 .card__image {
@@ -126,7 +128,7 @@
   position: absolute;
   top: clamp(1.438rem, 1.393rem + 0.188vi, 1.563rem);
   right: clamp(0.688rem, 0.379rem + 1.315vi, 1.563rem);
-  font-family: var(--PressStart), sans-serif;
+  font-family: var(--accent-font), sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 100%;
@@ -157,7 +159,7 @@
   padding-inline: 25px;
   padding-block-end: 25px;
   display: flex;
-  gap: 8px; /* гап для соответствия макету в состоянии focus-visible*/
+  gap: 6px; /* гап для соответствия макету в состоянии focus-visible*/
   justify-content: end;
   align-items: center;
 }
@@ -166,8 +168,8 @@
   background-color: transparent;
   border: none;
   padding: 0;
-  inline-size: 35px; /* размеры для соответствия макету в состоянии focus-visible*/
-  block-size: 34px;
+  inline-size: 39px; /* размеры для соответствия макету в состоянии focus-visible*/
+  block-size: 36px;
   display: flex;
   justify-content: center; /* для соответствия макету из-за перечисленных выше изменений*/
   align-items: center;
@@ -188,41 +190,41 @@
 
 .card__icon-button:hover .core {
   fill: var(--contour-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
 }
 
 .card__icon-button:not(:hover) .core {
   fill: transparent;
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
   transition-delay: 0.03s;
 }
 
 .card__icon-button:hover .main-body {
   fill: var(--contour-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
   transition-delay: 0.05s;
 }
 
 .card__icon-button:not(:hover) .main-body {
   fill: transparent;
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
   transition-delay: 0s;
 }
 
 .card__icon-button:active .core {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
 }
 
 .card__icon-button:active .main-body {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
   transition-delay: 0.05s;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
   transition-delay: 0.06s;
 }
 
@@ -251,15 +253,24 @@
   animation-iteration-count: 1;
 }
 
-.card__like-button {
+.button {
   position: relative;
-  inline-size: 130px;
-  block-size: 38px;
-  font-family: var(--PressStart), sans-serif;
+  font-family: var(--accent-font), sans-serif;
   font-size: 14px;
   line-height: 90%;
   background-color: #fff;
   border: var(--border);
+}
+
+.card__like-button {
+  position: relative;
+  inline-size: 130px;
+  block-size: 38px;
+  /*font-family: var(--accent-font), sans-serif;
+  font-size: 14px;
+  line-height: 90%;
+  background-color: #fff;
+  border: var(--border);*/
 }
 
 .button__text {
@@ -267,13 +278,13 @@
   mix-blend-mode: difference;
 }
 
-.card__like-button:focus {
+.button:focus {
   outline: none;
   box-shadow: 2px 2px #000;
   transition: box-shadow 0.3s ease;
 }
 
-.card__like-button::before {
+.button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -281,21 +292,15 @@
   transform: scaleX(0);
 }
 
-.card__like-button:hover::before {
+.button:hover::before {
   transform: scaleX(1);
   transition: transform 0.5s ease-in-out;
   transform-origin: left;
 }
 
 .save__button {
-  font-family: var(--PressStart), sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 90%;
-  background-color: #fff;
   margin-block-start: 50px;
   margin-block-end: 100px;
-  border: var(--border);
   padding-block: 15px;
   padding-inline: 20px;
   inline-size: clamp(19.375rem, 18.737rem + 2.723vi, 21.188rem);
@@ -308,6 +313,11 @@
 .floppy__image {
   block-size: 28px;
   inline-size: 28px;
+}
+
+.floppy__image-style {
+  fill: #fff;
+  mix-blend-mode: difference;
 }
 
 .insert-floppy {
@@ -327,12 +337,9 @@
 }
 
 .close__button {
-  font-family: var(--PressStart);
-  font-size: 14px;
-  line-height: 90%;
+  text-transform: uppercase;
   grid-column-start: 1;
   grid-column-end: 3;
-  background-color: #fff;
   padding-block: 12.5px;
   padding-inline: 114.5px;
   inline-size: clamp(16.063rem, 15.27rem + 3.38vi, 18.313rem);
@@ -346,10 +353,11 @@
 .floppy__image-save {
   width: 39px;
   height: 39px;
+  align-self: center; /* исправил выравнивание */
 }
 
 .save__button-title-close {
-  font-family: var(--PressStart);
+  font-family: var(--accent-font);
   font-size: 14px;
   font-weight: 400;
   line-height: 150%;
