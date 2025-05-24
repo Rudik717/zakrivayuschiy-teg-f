@@ -168,8 +168,9 @@
   background-color: transparent;
   border: none;
   padding: 0;
+  padding-block-start: 2px; /* паддинг для соответствия макету */
   inline-size: 39px; /* размеры для соответствия макету в состоянии focus-visible*/
-  block-size: 36px;
+  block-size: 34px;
   display: flex;
   justify-content: center; /* для соответствия макету из-за перечисленных выше изменений*/
   align-items: center;
